@@ -1,0 +1,37 @@
+
+<ul class="nav navbar-nav  navbar-fixed-top"  style="margin-left: 75%; width: 300px; padding-top: 2px;" >
+      <li style="float:right">
+      <a href="" ng-click="setCart()" style="margin-top: 3px; margin-right: 7px;"><span class="glyphicon glyphicon-shopping-cart shopping-cart">{{customer.cart.length}}items</span></a>
+      </li>
+
+    </ul>
+
+<div id="reviewContainer" style="margin-top: 100px;">
+<div class="listItem">
+<p class="itemTitle">Order #{{$index+1}}</p>
+<p class="prodDesc">Placed {{oneOrder.timestamp|date}}</p>
+ <p class="status">{{oneOrder.status}}</p>
+<div class="listItem" ng-repeat="item in oneOrder.items" ng-init="product=item.product[0]">
+<img class="listImg" ng-src="/uploads/{{product.imagefile}}" />
+    <span class="prodName">{{product.name}}</span>
+   <span >         
+   <span class="price">{{product.price|currency}}</span>
+     <label class="quantity">{{item.quantity}}</label>
+     <label class="quantity">Quantity</label>      
+     </span>
+      </div>  </div>
+      <div style="margin-bottom: 6%;">
+       <span class="button"><a href="/products">
+              Continue Shopping</a>
+                </span>
+                  </div>
+                   </div>
+                    <style type="">
+    ul li a {
+      color:#9d9d9d;
+    }
+    .nav > li > a:focus, .nav > li > a:hover{
+      color:#fff;
+      background: none;
+    }
+    </style>

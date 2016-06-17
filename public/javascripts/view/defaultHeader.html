@@ -1,0 +1,25 @@
+<nav class="navbar navbar-inverse navbar-fixed-top" style="height: 82px; padding-top: 10px;" >
+<div class="container-fluid" ng-controller="shoppingController">
+
+<div class="navbar-header" style="margin-top:-20px">
+ 
+ <a class="navbar-brand" href="/products">
+
+ <img style="width: 332px; " src="/images/logo_home.png"></a>
+    </div>
+    <ul class="nav navbar-nav "  style="float: right; margin-right: 121px; margin-top: 8px;" >
+      <li class="active"><a href="/products">Home</a></li>
+   <!--    <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="/products">Shop <span class="caret"></span></a>
+      <ul  class="dropdown-menu" >
+        </ul> -->
+
+     <li><a href="/products">Shop</a></li>
+          <li><a href="/viewBlog">Blog</a></li>
+      <li ng-if="!isUserLoggedIn()"><a href="/signUp" ><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+      <li ng-if="!isUserLoggedIn()"><a href="/login"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+       <li ng-if="isUserLoggedIn()">
+           <a href="" ng-click="logOut()">Log Out</a>
+                   </li>
+    </ul>
+  </div>
+</nav>  

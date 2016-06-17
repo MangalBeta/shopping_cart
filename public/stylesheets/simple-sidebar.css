@@ -1,0 +1,183 @@
+body {
+    padding-top: 50px;
+    overflow: hidden;
+}
+#wrapper {
+    min-height: 100%;
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    top: 0px;
+    left: 0;
+    display: inline-block;
+}
+#main-wrapper {
+    height: 100%;
+    overflow-y: auto;
+    padding: 50px 0 0px 0;
+}
+#main {
+    position: relative;
+    height: 100%;
+    overflow-y: auto;
+    padding: 0 15px;
+}
+#sidebar-wrapper {
+    height: 100%;
+    padding: 50px 0 0px 0;
+    position: fixed;
+    border-right: 1px solid gray;
+}
+ #sidebar-wrapper .nav > li > a:hover, .nav > li > a:focus {
+    background-color: rgb(0, 0, 0);
+    text-decoration: none;
+    color: #ffffff;
+}
+.nav_head{
+   background: rgb(34, 34, 34) none repeat scroll 0 0;
+    border: medium none;
+    }
+#sidebar {
+    background: rgb(34, 34, 34) none repeat scroll 0 0;
+    height: 100%;
+    overflow: hidden;
+    position: relative;
+}
+#sidebar .list-group-item {
+        border-radius: 0;
+        border-left: 0;
+        border-right: 0;
+        border-top: 0;
+}
+.sidebar_nav ul li {
+    border: none;
+    
+
+}
+.logo_head{
+    margin: 0px;
+    padding-top: 15px;
+  
+
+}
+.logo_head a { 
+    font-size: 24px;
+    color:#9d9d9d;
+
+    }
+    .logo_head a:hover { 
+    color:#ffffff;
+text-decoration: none;
+    }
+
+#user > li > a{
+   color: #777777;
+    float: none;
+    padding: 10px 15px;
+    text-decoration: none;
+    text-shadow: none;
+
+}
+
+#user > li > a:hover{
+    background-color: #000;
+    color: #fff;
+}
+.navbar .nav li.dropdown > .dropdown-toggle .caret {
+    border-bottom-color: #9d9d9d;
+    border-top-color: #9d9d9d;
+}
+.navbar .nav li.dropdown > a:hover .caret, .navbar .nav li.dropdown > a:focus .caret {
+    border-bottom-color: #ffffff;
+    border-top-color: #ffffff;
+}
+.sidebar_nav ul li a{
+  background: rgb(34, 34, 34) none repeat scroll 0 0;
+  border:none;
+ padding:15px 0 15px 15px;
+  color:#9d9d9d;
+}
+#demo > li  > a {
+
+    color: #999;
+    display: block;
+    padding: 10px 15px 10px 38px;
+    text-decoration: none;
+}
+#demo > li  > a:hover{
+   
+    background-color: rgb(0, 0, 0);
+    text-decoration: none;
+    color: #ffffff;
+}
+
+#sales > li  > a {
+
+    color: #999;
+    display: block;
+    padding: 10px 15px 10px 38px;
+    text-decoration: none;
+}
+#sales > li  > a:hover{
+   
+    background-color: rgb(0, 0, 0);
+    text-decoration: none;
+    color: #ffffff;
+}
+#catalog > li  > a {
+
+    color: #999;
+    display: block;
+    padding: 10px 15px 10px 38px;
+    text-decoration: none;
+}
+#catalog > li  > a:hover{
+   
+    background-color: rgb(0, 0, 0);
+    text-decoration: none;
+    color: #ffffff;
+}
+
+#visitor >li> a{
+      color: #999;
+    display: block;
+    padding: 10px 15px 10px 38px;
+    text-decoration: none;
+}
+#visitor > li  > a:hover{
+   
+    background-color: rgb(0, 0, 0);
+    text-decoration: none;
+    color: #ffffff;
+}
+
+@media (max-width: 992px) {
+    body {
+        padding-top: 0px;
+    }
+}
+@media (min-width: 992px) {
+    #main-wrapper {
+        float:right;
+    }
+}
+@media (max-width: 992px) {
+    #main-wrapper {
+        padding-top: 0px;
+    }
+}
+@media (max-width: 992px) {
+    #sidebar-wrapper {
+        position: static;
+        height:auto;
+        max-height: 300px;
+        border-right:0;
+    }
+}
+.footer {
+    background-color:#ffffff;
+    bottom:0;
+    position:fixed;
+    padding:10px;
+}
+

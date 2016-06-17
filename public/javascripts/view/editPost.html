@@ -1,0 +1,58 @@
+
+<link rel="stylesheet" type="text/css" href="/stylesheets/simple-sidebar.css" />
+<div id="wrapper">
+       <div ng-include="'/javascripts/view/adminSidebar.html'"></div>
+    <div id="main-wrapper" class="col-md-10 pull-right">
+             <div id="main">
+              <div class="page-header">
+                <h3>Edit Post</h3>
+              </div>
+                   <ol class="breadcrumb">
+                            <li>
+                                <i class="fa fa-dashboard"></i>  <a href="#">Dashboard</a>
+                            </li>
+                             <li>
+                                <i class="fa fa-fw fa-arrows-v"></i>  <a href="#">Edit Post</a>
+                            </li>
+         
+                        </ol>
+            
+     <div class="row text-center">
+
+          <div class="col-md-2 col-sm-8 hero-feature">
+               
+            </div>
+<div class="col-md-8 col-sm-8 hero-feature">
+ <form name="myForm"   >
+ <label style="float: left;">Title</label><br>
+ <input type="text" name="title" ng-model="updateValue.title" size="94" style="height: 35px;">
+
+</span>
+<br><br>
+
+  <label style="float: left;">Content</label><br>
+<textarea style="width: 100%; height:300px !important" name="content" ng-model="updateValue.content"  ></textarea><br><br><br>
+ 
+<label style="float: left;">Tags</label><br>
+<textarea style="width: 100%; height:50px" name="tags" ng-model="updateValue.tags"  ></textarea><br><br><br>
+  
+<input type="submit" style="float: right;" ng-click="savaUpdatePost(updateValue._id)" value="Save">
+</p>
+ </form>
+ </div>
+
+            <div class="col-md-2 col-sm-8 hero-feature">
+           
+            </div>
+</div>
+            </div>
+          
+            
+    
+</div>
+</div>
+
+
+
+
+

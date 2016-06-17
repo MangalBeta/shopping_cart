@@ -1,0 +1,47 @@
+<!doctype html>
+<html ng-app="myApp">
+<head>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script> 
+<title>Shopping Cart</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+ <link rel="stylesheet" type="text/css" href="/stylesheets/style.css" />
+ <link rel="stylesheet" type="text/css" href="/stylesheets/bootstrap.min.css" />
+<link rel="stylesheet" type="text/css" href="http://blackrockdigital.github.io/startbootstrap-sb-admin/font-awesome/css/font-awesome.min.css">
+ <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+ <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/twitter-bootstrap/2.3.1/css/bootstrap-combined.min.css">
+  <link rel="stylesheet" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.11.2/themes/smoothness/jquery-ui.css">
+
+ </head>
+  <body ng-controller="mainCtrl">
+<div ng-include="pageCtx.headerUrl"></div>
+<div class="container">
+      <div>
+    <ng-view></ng-view>
+       </div>
+        </div> 
+     
+ <div ng-include="pageCtx.footerUrl"></div>
+       </body>
+       </html>
+
+  <script src="/javascripts/angular.min.js"></script>
+
+  <script src="/javascripts/angular-route.min.js"></script>
+
+<!--  // <script type="text/javascript" src="https://raw.githubusercontent.com/dinbror/bpopup/master/jquery.bpopup.min.js"></script> -->
+<script type="text/javascript" src="/javascripts/angular-ui-notification.js"></script>
+<!-- <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.5.0/angular-animate.min.js"></script> -->
+<script src="/javascripts/module/app.js"></script>
+<script src="/javascripts/directive/custome_directive.js"></script>
+<script src="/javascripts/controller/mainController.js"></script>
+<script src="/javascripts/controller/controller.js"></script>
+<script src="/javascripts/controller/admin.js"></script>
+<script src="https://cdn.jsdelivr.net/ngstorage/0.3.6/ngStorage.min.js"></script>
+ <script src="/javascripts/services/createuser.js"></script>
+  <script src="/javascripts/services/adminAuth.js"></script>
+    <script src="/javascripts/services/blogService.js"></script>
+    <script src="/javascripts/services/commentServices.js"></script>
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.11.2/jquery-ui.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+<script src="http://angular-ui.github.io/bootstrap/ui-bootstrap-tpls-0.10.0.js" type="text/javascript"></script>

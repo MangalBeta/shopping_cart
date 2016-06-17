@@ -1,0 +1,104 @@
+<!-- 
+<ul class="nav navbar-nav  navbar-fixed-top"  style="padding-top: 10px; width: 0px; margin-left: 96%;" >
+           <li style="float:right"><a href="" ng-click="setOrder()" style="margin-left: -21px; margin-top: 5px;">Orders</a></li>
+      <li style="float:right">
+      <a href="" ng-click="setCart()" style="margin-top: 3px; margin-right: 7px;"><span class="glyphicon glyphicon-shopping-cart shopping-cart">{{cart.length}}items</span></a>
+      </li>
+ 
+    </ul> -->
+
+                   
+ 
+
+<link rel="stylesheet" type="text/css" href="/stylesheets/simple-sidebar.css" />
+    <div id="wrapper">
+        <div ng-include="'/javascripts/view/adminSidebar.html'"></div>
+      
+        <div id="main-wrapper" class="col-md-10 pull-right">
+             <div id="main">
+              <div class="page-header">
+                <h3>Orders</h3>
+              </div>
+                   <ol class="breadcrumb">
+                            <li>
+                                <i class="fa fa-dashboard"></i>  <a href="#">Dashboard</a>
+                            </li>
+          <li>
+                                <i class="fa fa-fw fa-arrows-v"></i>  <a href="#">Orders</a>
+                            </li>
+
+                        </ol>
+<!--          <div id="reviewContainer" style="margin-top: 100px;">
+<div class="listItem" ng-repeat="order in orders">
+<p class="itemTitle">Order #{{$index+1}}</p>
+<p class="prodDesc">Placed {{order.timestamp|date}}</p>
+ <p class="status">{{order.status}}</p>
+ <div class="listItem" ng-repeat="item in order.items" ng-init="product=item.product[0]">
+<img class="listImg"  ng-src="/uploads/{{product.imagefile}}" />
+    <span class="prodName">{{product.name}}</span>
+   <span >         
+   <span class="price">{{product.price|currency}}</span>
+     <label class="quantity">{{item.quantity}}</label>
+     <label class="quantity">Quantity</label>      
+     </span>
+      </div> </div>
+      <div style="margin-bottom: 100px;">
+     
+                  </div>
+                   </div> -->
+
+        <div class="table-responsive">
+                            <table class="table table-bordered table-hover table-striped">
+                                <thead>
+                                    <tr>
+                            <th>Index</th>
+                            <th>Date</th>
+                            <th>Reference</th>
+                            <th>Customers</th>
+                           <th>Items</th>
+                           <th>Total</th>
+                            <th>Status</th>
+                             <th>Action</th>
+                               </tr>
+                                </thead>
+             
+                                <tbody  >
+
+        <tr class="active" ng-repeat-start="order in orders"  >
+        <tr ng-repeat-end="item in itemsquantity" >
+                <td>{{$index+1}}</td>
+                 <td>{{order.timestamp|date}}</td>
+                    <td>order{{$index+1}}</td>
+
+                 <td>{{order.userid}}</td>
+             
+                <td ng-repeat="item in itemsquantity">{{item.quantity}}</td> 
+                  
+                <td ng-repeat="amount in order.billing">{{amount.amount}}</td>  
+                  <td>{{order.status}}</td>
+                <td><a href="#" ><i class="glyphicon glyphicon-pencil"></i>Details</a></td>
+                </tr>
+                        </tr>
+                      </tbody>
+                            </table>
+                        </div>
+                        <button ng-click="getQuantity()">gggg</button>
+                  
+        <div class="row">
+            <div class="col-lg-2"> 
+            </div>
+            <div class="col-lg-6">  
+            </div>
+             <div class="col-lg-4"  style="margin-bottom: 50px;">
+                <pagination page="currentPage" max-size="noOfpages" total-items="totalItems" items-per-page="entryLimit"></pagination>
+            </div>
+        </div>
+
+ 
+             
+          
+                </div>
+            </div>
+          
+            
+        </div>

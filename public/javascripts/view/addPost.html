@@ -1,0 +1,62 @@
+
+
+<link rel="stylesheet" type="text/css" href="/stylesheets/simple-sidebar.css" />
+<div id="wrapper">
+       <div ng-include="'/javascripts/view/adminSidebar.html'"></div>
+        <div id="main-wrapper" class="col-md-10 pull-right">
+            <div id="main">
+              <div class="page-header">
+                <h3>Add Post</h3>
+              </div>
+                   <ol class="breadcrumb">
+                            <li>
+                                <i class="fa fa-dashboard"></i>  <a href="#">Dashboard</a>
+                            </li>
+                            <li class="active">
+                                <i class="fa fa-table"></i> Add Post
+                            </li>
+                        </ol>
+
+
+    <div class="row text-center">
+
+          <div class="col-md-2 col-sm-8 hero-feature">
+               
+         </div>
+<div class="col-md-8 col-sm-8 hero-feature">
+ <form name="myForm"  novalidate >
+ <label style="float: left;">Title</label><br>
+ <input type="text" name="title" ng-model="title" size="94" style="height: 35px;" required>
+<span style="color:red" ng-show="myForm.title.$dirty">
+<span ng-show="myForm.title.$error.required">Title is required.</span>
+</span>
+<br><br>
+ <label style="float: left;">Description</label><br>
+<textarea style="width: 100%; height:300px !important" name="content" ng-model="content" required></textarea><br><br><br>
+  <span style="color:red" ng-show="myForm.content.$dirty">
+<span ng-show="myForm.content.$error.required">Content is required.</span>
+</span>
+<label style="float: left;">Tags</label><br>
+<textarea style="width: 100%; height:50px" name="tags" ng-model="tags" required></textarea><br><br><br>
+ <span style="color:red" ng-show="myForm.tags.$dirty">
+<span ng-show="myForm.tags.$error.required">Tags is required.</span>
+</span>
+<label style="float: left;">Upload Image</label>  <input type="file" file-model="myFile"> 
+<input type="submit" style="float: right;" ng-click="blogFile()" value="Save">
+
+ </form>
+ </div>
+
+            <div class="col-md-2 col-sm-8 hero-feature">
+           
+            </div>
+</div>
+
+
+            </div>
+          
+            
+        </div>
+</div>
+
+

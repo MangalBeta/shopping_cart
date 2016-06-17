@@ -1,0 +1,139 @@
+ <style type="">
+    ul li a {
+      color:#9d9d9d;
+    }
+    .nav > li > a:focus, .nav > li > a:hover{
+      color:#fff;
+      background: none;
+    }
+    button{
+
+     height: 35px; background: rgb(0, 153, 208) none repeat scroll 0% 0%; color: rgb(255, 255, 255); float: left; border: medium none;"
+    
+    }
+    </style>
+
+
+<ul class="nav navbar-nav  navbar-fixed-top"  style="padding-top: 10px; width: 0px; margin-left: 96%;">
+           <li ng-if="loginUser" style="float:right"><a href="" ng-click="setOrder()" style="margin-left: -21px; margin-top: 5px;">Orders</a></li>
+      <li style="float:right">
+      <a href="" ng-click="setCart()" style="margin-top: 3px; margin-right: 7px;"><span class="glyphicon glyphicon-shopping-cart shopping-cart">{{customer.cart.length}}items</span></a>
+      </li>
+ 
+    </ul>
+<div class="row" style="margin-top: 100px;">
+ <div class="col-lg-2">     
+        </div>
+            <div class="col-lg-8">
+               <h3>Card Info:</h3>
+        </div>
+         <div class="col-lg-2">
+        </div>
+        </div>
+  <div class="row text-center">
+            <div class="col-md-2 col-sm-8 hero-feature">
+               
+            </div>
+  <div class="col-md-8 col-sm-8 hero-feature">
+ <label style="float:left">Name on Card</label>
+ <input type="text" ng-model="customer.billing[0].name" /><br>
+ <br><label style="float:left">Card Number</label>
+
+ <input type="text" ng-model="customer.billing[0].number" /><br>   <br>
+ <label style="float:left">Card</label>
+<div class="cardtype" style="">
+<input type="radio" ng-model="customer.billing[0].cardtype" value="Visa"> 
+ Visa <input type="radio" ng-model="customer.billing[0].cardtype"      value="Amex"> 
+ Amex08<input type="radio" ng-model="customer.billing[0].cardtype" value="MasterCard"> MasterCard10
+ </div>
+  <br>
+  <br>
+ <label style="float:left">Expires</label> &nbsp;
+ <div class="cardvalid" style="">
+ <select  style="width: 100px;" ng-model="customer.billing[0].expiremonth" ng-options="m for m in months"></select>  &nbsp;  &nbsp; &nbsp;<select style="width: 100px;" ng-model="customer.billing[0].expireyear"   ng-options="m for m in years"></select><span></span>
+  &nbsp; &nbsp; &nbsp;<label >Card CCV</label> &nbsp;
+ <input class="security" type="text" ng-model="customer.billing[0].cvv" />
+ </div>
+ <h3 style="text-align:left">Billing Address:</h3>
+ <label style="float:left">Name</label>
+ <input type="text" ng-model="customer.billing[0].address[0].name" />
+ <br><label style="float:left">Address</label><input type="text" ng-model="customer.billing[0].address[0].address" />
+ <br><label style="float:left"> City</label>
+ <input type="text" ng-model="customer.billing[0].address[0].city" /><br>
+ <label style="float:left">State</label>
+ <input type="text"    ng-model="customer.billing[0].address[0].state" /><br>
+ <label style="float:left">Zipcode</label>
+
+ <input type="text" ng-model="customer.billing[0].address[0].zip" />
+ <hr>
+<div style="float: left;">    
+<!--<span class="button" ng-click="addBilling()">Add Billing</span> -->
+ <button  ng-click="verifyBilling(ccv)" style="height:35px">Verify Billing</button>     <span style="">
+ <a href="" ng-click="paypalBilling()"><img style="width: 100px;" src="/images/paypal.png"></a>
+  </span>
+ 
+   </div>
+   </div>
+   <div class="col-md-2 col-sm-8 hero-feature" style="margin-bottom: 80%;">
+    </div>
+   </div>
+    
+     
+ 
+   <!-- <div class="row">
+ <div class="col-lg-2"> -->
+       <!-- 
+        </div>
+            <div class="col-lg-8">
+           <h2>Card Info: </h2>
+        </div>
+         <div class="col-lg-2">     
+        </div>
+        </div>
+     <div class="row text-center">
+         <div class="col-md-2 col-sm-8 hero-feature"> 
+          </div>
+<div class="col-md-8 col-sm-8 hero-feature">
+ <form name="myForm"  novalidate >
+ <label style="float: left;">Card:</label> 
+<span style="float:left; margin-left:22px"><input type="radio" name="card" ng-model="customer.billing[0].cardtype" value="Visa"> 
+ Visa <input type="radio" name="card"  ng-model="customer.billing[0].cardtype"  value="Amex"> 
+ Amex08<input type="radio" name="card" ng-model="customer.billing[0].cardtype" value="MasterCard">MasterCard
+ </span>
+<span style="color:red" ng-show="myForm.card.$dirty">
+<span ng-show="myForm.card.$error.required">Card is required.</span>
+</span>
+<br><br>
+
+ <label style="float: left;">Name on Card</label>
+ <input type="text" name="card_name" ng-model="customer.billing[0].name" />   <span style="color:red" ng-show="myForm.card_name.$dirty">
+<span ng-show="myForm.card_name.$error.required">Card name is required.</span>
+</span><br><br>
+
+ <label style="float: left;">Card Number</label><br>
+<input type="text" name=" cardNumber" ng-model="customer.billing[0].number"/>
+<span style="color:red" ng-show="myForm.cardNumber.$dirty">
+<span ng-show="myForm.cardNumber.$error.required">Card Number</span>
+</span><br><br>
+
+ <label style="float: left;">Expires</label><br>
+<select ng-model="customer.billing[0].expiremonth" name="expire" ng-options="m for m in months"></select>
+<select ng-model="customer.billing[0].expireyear"  name="expire" ng-options="m for m in years"></select> 
+ <span style="color:red" ng-show="myForm.expire.$dirty">
+<span ng-show="myForm.expire.$error.required">Expire is required.</span>
+</span>
+  <label style="float: left;">Card CCV</label>  
+ <input class="security" type="text" ng-model="ccv" name="ccv"/>
+  <span style="color:red" ng-show="myForm.ccv.$dirty">
+<span ng-show="myForm.ccv.$error.required">ccv is required.</span>
+</span><br><br>
+
+<input type="submit" style="float: left;" ng-click="verifyBilling(ccv)" value="Verify Billing">
+ <span style="float: left; margin-left: 34px"><a href="#/products">Continue Shopping </a></span>
+</p>
+ </form>
+ </div>
+    <div class="col-md-2 col-sm-8 hero-feature">
+   </div>
+</div> -->
+ 

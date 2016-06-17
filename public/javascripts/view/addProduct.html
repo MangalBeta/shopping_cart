@@ -1,0 +1,60 @@
+
+<link rel="stylesheet" type="text/css" href="/stylesheets/simple-sidebar.css" />
+<div id="wrapper">
+       <div ng-include="'/javascripts/view/adminSidebar.html'"></div>
+        <div id="main-wrapper" class="col-md-10 pull-right">
+            <div id="main">
+              <div class="page-header">
+                <h3>Add Product</h3>
+              </div>
+                   <ol class="breadcrumb">
+                            <li>
+                                <i class="fa fa-dashboard"></i>  <a href="#">Dashboard</a>
+                            </li>
+                            <li class="active">
+                                <i class="fa fa-table"></i> Add Product
+                            </li>
+                        </ol>
+          <div class="row text-center">
+          <div class="col-md-2 col-sm-8 hero-feature">
+            </div>
+      
+<div class="col-md-8 col-sm-8 hero-feature">
+ <form name="myForm"  novalidate >
+<label style="float: left;">Product Name</label><br>
+ <input type="text" name="title" ng-model="title" size="94" style="height: 35px; width:100%;" required>
+<span style="color:red" ng-show="myForm.title.$dirty">
+<span ng-show="myForm.title.$error.required">Product name is required.</span>
+</span>
+<br><br>
+<label style="float: left;">Description</label><br>
+<textarea style="width: 100%; height:300px !important" name="description" ng-model="description" required></textarea><br><br>
+  <span style="color:red" ng-show="myForm.description.$dirty">
+<span ng-show="myForm.description.$error.required">Content is required.</span>
+</span>
+
+ <label style="float: left;">Price</label><br>
+<input type="Number" required="" style="float: left; width:100%; height: 35px;" size="" ng-model="price" name="price" placeholder=" In Doller..........."><br>
+<span style="color:red" ng-show="myForm.price.$dirty">
+<span ng-show="myForm.price.$error.required">Price is required.</span>
+</span>
+<br><br><br>
+
+<label style="float: left;">Upload Image</label>  <input type="file" file-model="myFile"> 
+  <input type="submit" class="btn btn-default" style="float: right;" ng-click="addProducts()" value="Save" >
+
+ </form>
+ </div>
+<div class="col-md-2 col-sm-8 hero-feature" style="margin-bottom: 60%;">
+     </div>
+</div>
+
+
+
+            </div>
+          
+            
+        </div>
+</div>
+
+

@@ -1,0 +1,132 @@
+ <style type="">
+    ul li a {
+      color:#9d9d9d;
+    }
+    .nav > li > a:focus, .nav > li > a:hover{
+      color:#fff;
+      background: none;
+    }
+    </style>
+
+<div class="row" style="margin-top: 100px;">
+ <div class="col-lg-2">     
+        </div>
+            <div class="col-lg-8">
+               <h3>SignUp</h3>
+        </div>
+         <div class="col-lg-2">
+        </div>
+        </div>
+     <div class="row text-center">
+            <div class="col-md-2 col-sm-8 hero-feature">
+               
+            </div>
+       <div class="col-md-8 col-sm-8 hero-feature">
+
+<form name="registrationForm" novalidate  ng-submit="registration.submit(registrationForm.$valid)">
+       <div class="form-group">
+            <label style="float: left;">Name</label>
+            <input type="text" name="name" class="form-control" ng-model="registration.user.name" required />
+            <div ng-show="registrationForm.name.$dirty && registrationForm.name.$error.required">Name is required</div>
+         
+        </div>
+            <div class="form-group">
+            <label style="float: left;">Username</label>
+            <input type="text" name="username" class="form-control" ng-model="registration.user.username" required />
+            <div ng-show="registrationForm.username.$dirty && registrationForm.username.$error.required">username is required</div>
+         
+        </div>
+      <div class= "form-group" >
+        <label style="float: left;">email</label>
+    <input type="email" class="form-control" name="email" ng-model="registration.user.email"  required>
+<div ng-show="registrationForm.email.$dirty && registrationForm.email.$error.required  && registrationForm.email.$invalid">email is required</div>
+
+    </div>
+        <div class="form-group">
+            <label style="float: left;">Password</label>
+            <input ng-minLength=6 type="password" name="password" class="form-control" ng-model="registration.user.password" required />
+            <div ng-show="registrationForm.password.$dirty && registrationForm.password.$error.required">password is required</div>
+    <div ng-show ="registrationForm.password.$error.minLength">Password must be more then 6 characters</div>
+           
+        </div>
+        <div class="form-group">
+            <label style="float: left;">Confirm Password</label>
+            <input type="password" name="confirmPassword" class="form-control" 
+                   ng-model="registration.user.confirmPassword" 
+                   required compare-to="registration.user.password" />
+            <div ng-show=" registrationForm.confirmPassword.$dirty &&  registrationForm.confirmPassword.$error.compareTo">Passwords don't match.</div>
+            </div>
+ 
+        <div class="form-group">
+            <label style="float: left;">Profile Pic</label>
+          <input type="file" file-model="registration.user.myFile"/>
+        </div>
+         <div class="form-group">
+            <label style="float: left;">Gender</label>
+    Male<input  type="radio" name="gender"  ng-model="registration.user.gender"  value="male" />  &nbsp;&nbsp;&nbsp;
+   Female <input  type="radio" name="gender" ng-model="registration.user.gender"  value="female" />
+
+      <!-- <div ng-show="registrationForm.gender.$dirty && registrationForm.gender.$error.required">Gender is required</div> -->
+
+        </div><br/>
+        <div class="form-group">
+            <!-- <button type="submit" class="btn btn-primary">Register!</button>  -->
+            <button  class="main-button login" ng-disabled="registrationForm.$invalid" ng-click="uploadFile(); ">Save</button>  &nbsp;&nbsp;&nbsp;  <a href="/login">Log In</a>
+  <span ng-show="registrationForm.$dirty && registrationForm.$invalid">Plz fill the all filed valid</span>
+        </div>
+    </form> 
+</div>
+    <div class="col-md-2 col-sm-8 hero-feature" style="margin-bottom:60%">
+    </div>
+      </div> 
+
+
+
+
+
+
+
+
+
+<!--
+
+<form name="myForm"  novalidate method="post" action="/">
+ <label style="float: left;">Name</label><br>
+<input type="text" name="user" ng-model="user" required size="94" style="height: 35px;">
+<span style="color:red" ng-show="myForm.user.$dirty && myForm.user.$invalid">
+<span ng-show="myForm.user.$error.required">Username is required.</span>
+</span>
+
+ <label style="float: left;">Email</label><br>
+<input type="email" name="email" ng-model="email" required size="94" style="height: 35px;">
+<span style="color:red" ng-show="myForm.email.$dirty && myForm.email.$invalid">
+<span ng-show="myForm.email.$error.required">Email is required.</span>
+<span ng-show="myForm.email.$error.email">Invalid email address.</span>
+</span>
+
+             <div class="form-group">
+            <label>Password</label>
+            <input type="password" name="password" class="form-control" ng-model="myForm.user.password" required />
+            <div ng-show="myForm.password.$error"><div ng-show="myForm.password.$error.required">required
+        </div>
+      <div class="form-group">
+            <label>Confirm Password</label>
+            <input type="password" name="confirmPassword" class="form-control" 
+                   ng-model="myForm.user.confirmPassword" 
+                   required compare-to="myForm.user.password" />
+            <div ng-messages="myForm.confirmPassword.$error">
+              <div ng-message="compareTo">Passwords don't match.</div>
+            </div>
+        </div>
+        <div class="form-group">
+            <label>Profile Pic</label>
+          <input type="file" accept="image/*" image="image"/>
+<img ng-show="image" ng-src="{{image.url}}" type="{{image.file.type}}" />
+        </div>
+
+<input type="submit" style="float: right;"
+ng-disabled="myForm.user.$dirty && myForm.user.$invalid ||  myForm.email.$dirty && myForm.email.$invalid" value="Save">
+</p>
+
+</form>
+   -->

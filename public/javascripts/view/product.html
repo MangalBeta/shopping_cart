@@ -1,0 +1,56 @@
+
+<ul class="nav navbar-nav  navbar-fixed-top"  style="width: 300px; padding-top: 10px; margin-left: 74%;">
+           <li ng-if="loginUser" style="float:right"><a href="" ng-click="setOrder()" style="margin-left: -21px; margin-top: 5px;">Orders</a></li>
+      <li style="float:right">
+      <a href=""  ng-click="setCart()" style="margin-top: 3px; margin-right: 7px;"><span class="glyphicon glyphicon-shopping-cart shopping-cart">{{customer.cart.length}}items</span></a>
+      </li>
+ 
+    </ul>
+
+
+    <div class="row" style="margin-top: 100px;">
+
+            <div class="col-lg-12">
+
+             <h3>{{product.name}}</h3>
+
+            </div>
+        </div>
+  
+        <div class="row text-center">
+           <div class="col-md-2 col-sm-6 hero-feature">
+
+            </div>
+            <div class="col-md-8 col-sm-6 hero-feature">
+
+                <div class="thumbnail">
+                   <a href="#"> <img  ng-src="../uploads/{{product.imagefile}}"  style="width: 300px;"  alt=""></a>
+                   <br>
+                    <div class="caption">
+        
+                        <p>
+                        {{product.description}}
+                        </p>
+                      <div class="price"> {{product.price|currency}}</div>
+
+           <a  href=""  class="" ng-click="addToCart(id);">Add to Cart </a> 
+         
+        </div>
+                    </div>
+           
+                </div>
+
+            </div>
+<div class="col-md-2 col-sm-6 hero-feature" style="margin-bottom:50%">
+            </div>
+          
+            </div>
+ <style type="">
+    ul li a {
+      color:#9d9d9d;
+    }
+    .nav > li > a:focus, .nav > li > a:hover{
+      color:#fff;
+      background: none;
+    }
+    </style>

@@ -1,0 +1,174 @@
+
+
+    <div class="row" style="margin-top:40px">
+            <div class="col-lg-12">
+             <h3>{{oneBlog.title}}</h3>
+            </div>
+        </div>
+  
+        <div class="row text-center" style="margin-bottom:40px">
+           <div class="col-md-2 col-sm-6 hero-feature">
+
+            </div>
+            <div class="col-md-8 col-sm-6 hero-feature">
+                <div class="thumbnail">
+                   <a href="#"> <img ng-src="/blogUpload/{{oneBlog.images}}" alt=""></a>
+                   <br>
+                    <div class="caption">
+        
+                        <p>
+                        {{oneBlog.content}}
+
+                        </p>
+                    </div>
+                  <!--    <p>
+                    <strong >Auther Name</strong>: <a href="/profile">{{oneBlog.name}}</a>  <strong >Tags</strong>: {{oneBlog.tags}}  <strong >Created To</strong>: {{oneBlog.createdAt | date}}</p> -->
+   <ul class="list-inline list-unstyled">
+  			<li><span><i class="glyphicon glyphicon-calendar"></i> {{oneBlog.createdAt| date}} </span></li>
+            <li>|</li>
+            <span ng-click="showboxComment()"><i class="glyphicon glyphicon-comment"></i> {{myCommentData.length}} comments</span>
+            <li>|</li>
+            <li>
+               <span class="glyphicon glyphicon-star"></span>
+                        <span class="glyphicon glyphicon-star"></span>
+                        <span class="glyphicon glyphicon-star"></span>
+                        <span class="glyphicon glyphicon-star"></span>
+                        <span class="glyphicon glyphicon-star-empty"></span>
+            </li>
+            <li>|</li>
+            <li>
+            <!-- Use Font Awesome http://fortawesome.github.io/Font-Awesome/ -->
+              <span><i class="fa fa-facebook-square"></i></span>
+              <span><i class="fa fa-twitter-square"></i></span>
+              <span><i class="fa fa-google-plus-square"></i></span>
+            </li>
+			</ul>
+           </div>
+<!-- <span style="float: left;  font-size: 18px;">Likes: <button style="  color: red; font-size: 15px; line-height: 18px;" class="fa fa-heart" ng-click="countLikes()" >&nbsp;{{likes}}</button>   &nbsp;&nbsp; comments: <button style="  color: red; font-size: 15px; line-height: 18px;" class="fa fa-heart"  >&nbsp;{{comment}}</button> </span><br><br><br> 
+ -->
+ <!-- show comment box in post -->
+  <hr>
+<div class="comments" ng-show="boxcomments">
+ <h2 class="panel-title" style="text-align: left; padding-left: 15px">
+                    Comments : </h2>
+  <div class="[ panel panel-default ] panel-google-plus" ng-class="classss">
+  <div class="panel-heading"  ng-repeat="y in myCommentData |limitTo:showMore ? myCommentData.length : 2" >
+     <p ng-show="false">{{$index+1}}</p>
+    <div class="commens">
+  <span ng-repeat="x in y.user_id">
+   <img  style="height: 50px;" class="[ img-circle pull-left ]" ng-src="/usersuploads/{{x.local.pic}}" />
+  <h3 >{{x.local.username}}</h3>
+<i class="fa fa-clock-o" aria-hidden="true">&nbsp;</i>
+<span>{{y.cretedByComm | date}}</span>  &nbsp;&nbsp;
+ <a href=""  ng-click="likesComm(y._id)"> <i class="fa fa-thumbs-o-up" aria-hidden="true">{{y.likes}}</i> </a>&nbsp;&nbsp;
+ <a href=" "  ng-click="dislikesComm(y._id)">   <i class="fa fa-thumbs-o-down" aria-hidden="true">{{y.dislikes}}</i></a> &nbsp;&nbsp;
+  </span>
+ <a href="" ng-if="isUserLoggedIn()" ng-click="showReplyIndex($index); replyComment(y._id);" >{{y.replyCommentUser.length}}reply<span class="[ glyphicon glyphicon-share-alt ]"></span></a>&nbsp;&nbsp;
+
+ <div class="dropdown" ng-if="isUserLoggedIn()">
+  <span class="dropdown-toggle" type="button" data-toggle="dropdown">
+   <a href="#">  More<i class="fa fa-caret-down" aria-hidden="true"></i></a>
+    </span>
+    <ul class="dropdown-menu" role="menu">
+    <li role="presentation"><a role="menuitem" tabindex="-1" href="" ng-click="removeComm(y._id)">delete</a></li>
+     <li role="presentation"><a role="menuitem" tabindex="-1" href="" ng-click=" showIndex($index); editComment(y._id); ">Edit</a></li>
+          </ul>
+          </div>
+    <p style="text-align: left; "  > {{y.comments}}</p>
+        </div><!-- ng-hide="showBoxEdit" --> 
+
+    <div class="reply" ng-hide="sowreply" ng-repeat="replycomm in y.replyCommentUser"   >
+  
+     <span ng-repeat="reply in y.user_id" >
+   <img  style="height: 50px;" class="[ img-circle pull-left ]" ng-src="/usersuploads/{{reply.local.pic}}" />
+  <h3 >{{reply.local.username}}</h3>
+<i class="fa fa-clock-o" aria-hidden="true">&nbsp;</i>
+<span>{{y.cretedByComm | date}}</span>  &nbsp;&nbsp;
+<!--  <a href=""  ng-click="likesComm(y._id)"> <i class="fa fa-thumbs-o-up" aria-hidden="true">{{y.likes}}</i> </a>&nbsp;&nbsp;
+ <a href=" "  ng-click="dislikesComm(y._id)">   <i class="fa fa-thumbs-o-down" aria-hidden="true">{{y.dislikes}}</i></a> &nbsp;&nbsp; -->
+  </span>
+    <p style="text-align: left; "  >{{replycomm.replyComment}}</p>
+
+     </div>
+ <div class="panel-google-plus-comment" ng-if="$index == a" ng-show="showBoxEdit">       
+         <textarea style="width:100%" rows="4" ng-model="updateComment.comments"></textarea>
+         <button type="submit" class="[ btn btn-success disabled ]" ng-click="savaUpdateComment(y._id)">Edit Save</button>
+                   <button type="reset" class="[ btn btn-default ]" ng-click="cancelEditbox($indexs)">Cancel</button>
+                       
+                    </div>
+                   
+       <div class="panel-google-plus-textarea" ng-if="$index == b" ng-show="!showBoxReply">
+               <img class="img-circle" src="https://lh3.googleusercontent.com/uFp_tsTJboUY7kue5XAsGA=s46" alt="User Image" />
+     <textarea style="height: 100px ! important; width:90%" rows="4" style=" height:50px" ng-model="myform.replycomments"></textarea>
+            <button type="submit" class="[ btn btn-success disabled ]" ng-click="replyAddComment(y._id);">Post comment</button>
+                   <button type="reset" class="[ btn btn-default ]" ng-click="cancereplybox($index)">Cancel</button> 
+                    </div>
+                    <div class="clearfix"></div>
+                </div>
+      </div>    
+         <div class="panel-footer " >
+                  <button ng-click="toggleCustom(); checkClass()" class="[ btn btn-default ]" type="button" style="height: 37px; margin-left: 0px; width: 22%;" >
+                     <i class="fa fa-plus-square" aria-hidden="true"> </i> View All Comments
+                    </button>
+                    <div ng-hide="showBox" class="input-placeholder" ng-click="showCommentBox()"> Add a comment...</div>
+                </div>
+<!--show if post comment   -->
+        <div class="panel-google-plus-comment" ng-show="showBox">
+                 <img class="img-circle" src="https://lh3.googleusercontent.com/uFp_tsTJboUY7kue5XAsGA=s46" alt="User Image" />
+                    <div class="panel-google-plus-textarea" >
+              
+         <textarea style="height: 100px ! important;" rows="4" style=" height:50px"ng-model="myform.comments"></textarea>
+                   <button type="submit" class="[ btn btn-success disabled ]" ng-click="addComment()">Post comment</button>
+                   <button type="reset" class="[ btn btn-default ]" ng-click="cancebox()">Cancel</button>
+                       
+                    </div>
+                    <div class="clearfix"></div>
+                </div>  
+                 
+
+               <div class="row">
+            <div class="col-lg-2"> 
+            </div>
+            <div class="col-lg-6">  
+            </div>
+         <!--     <div class="col-lg-4"  style="margin-bottom: 50px;">
+                <pagination page="currentPage" max-size="noOfpages" total-items="totalItems" items-per-page="entryLimit"></pagination>
+            </div> -->
+        </div>
+</div>
+        
+    </div>
+<div class="col-md-2 col-sm-6 hero-feature" >
+            </div>
+          
+            </div>
+<!-- <div class="container"> -->
+    
+<!-- </div> -->
+
+<!-- // <script type="text/javascript">
+// // $(function () {
+// //    $('.panel-google-plus > .panel-footer > .input-placeholder, .panel-google-plus > .panel-google-plus-comment > .panel-google-plus-textarea > button[type="reset"]').on('click', function(event) {
+// //         var $panel = $(this).closest('.panel-google-plus');
+// //             $comment = $panel.find('.panel-google-plus-comment');
+            
+// //         $comment.find('.btn:first-child').addClass('disabled');
+// //         $comment.find('textarea').val('');
+        
+// //         $panel.toggleClass('panel-google-plus-show-comment');
+        
+// //         if ($panel.hasClass('panel-google-plus-show-comment')) {
+// //             $comment.find('textarea').focus();
+// //         }
+// //    });
+// //    $('.panel-google-plus-comment > .panel-google-plus-textarea > textarea').on('keyup', function(event) {
+// //         var $comment = $(this).closest('.panel-google-plus-comment');
+        
+// //         $comment.find('button[type="submit"]').addClass('disabled');
+// //         if ($(this).val().length >= 1) {
+// //             $comment.find('button[type="submit"]').removeClass('disabled');
+// //         }
+// //    });
+// // });
+// // </script>
+ -->

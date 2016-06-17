@@ -1,0 +1,155 @@
+
+<ul class="nav navbar-nav  navbar-fixed-top"  style="padding-top: 10px; width: 0px; margin-left: 96%;">
+           <li ng-if="loginUser" style="float:right"><a href="" ng-click="setOrder()" style="margin-left: -21px; margin-top: 5px;">Orders</a></li>
+      <li style="float:right">
+      <a href="" ng-click="setCart()" style="margin-top: 3px; margin-right: 7px;"><span class="glyphicon glyphicon-shopping-cart shopping-cart">{{itemCart.length}}items</span></a>
+      </li>
+    </ul>
+ <!-- <div id="cartsContainer" style="margin-top: 75px;">
+
+ <table style="width:100% ;border:1px solid">
+<th>Product</th>
+<th>Price</th>
+<th>Quentity</th>
+<th>Total</th>
+<th>Remove</th>
+<tr ng-repeat="item in customer.cart">
+<td>
+ <img class="listImg" ng-click="setProduct(product._id)"
+       ng-src="/uploads/{{product.imagefile}}" />
+  <span class="prodName">{{product.name}}</span>
+</td>
+<td>
+  <span class="price">{{product.price * item.quantity |currency}}</span>
+</td>
+<td>
+<input class="quantity" type="text" ng-model="item.quantity" />
+</td>
+<td>
+         <span class="price">{{cartTotal()|currency}}</span>
+</td>
+<td>
+    <span class="delete" ng-click="deleteFromCart(product._id)">Remove</span>
+</td>
+
+</tr>
+ </table>
+<div class="listItem" ng-repeat="item in customer.cart"
+    ng-init="product=item.product[0]">
+ <img class="listImg" ng-click="setProduct(product._id)"
+        ng-src="/uploads/{{product.imagefile}}" />
+  <span class="prodName">{{product.name}}</span>
+
+     <span >
+<span class="price"></span>
+
+  <span class="price">{{product.price * item.quantity |currency}}</span>  <label class="quantity">Price</label>
+    <input class="quantity" type="text" ng-model="item.quantity" />
+    <label class="quantity">Quantity</label>
+     <span class="delete" ng-click="deleteFromCart(product._id)">Remove</span>
+     </span>
+     </div>
+           <div  style="margin-top: 25px;">
+<span style="margin-left: 800px; font-weight: bold; font-size: 20px;">Sub Total</span>
+           <span class="price">{{subtotal|currency}}</span>
+             </div>
+                 <hr>
+       <div  style="margin-top: 25px;">
+<span style="margin-left: 800px; font-weight: bold; font-size: 20px;">Shipping</span>
+           <span class="price">{{shipping|currency}}</span>
+             </div>
+              <hr>
+               <div>
+   <span style="margin-left: 800px; font-weight: bold; font-size: 20px;">Total</span>
+             <span class="price">{{cartTotal()|currency}}</span>
+             </div>
+             <hr>
+             <div>
+       <button class=" button2" ng-click="checkout()" ng-hide="customer.cart.length==0">
+                           Proceed To Checkout
+                     </button>
+<span style="float: right; font-size: 26px; margin-top: 16px; margin-right: 37px;"><a href="/products">Continue Shopping</a></span>
+                                                                </div>
+                                                                 </div>
+<style>
+
+button {
+    background-color: red;
+    border: medium none;
+    color: white;
+    cursor: pointer;
+    display: inline-block;
+    float: right;
+    font-size: 23px;
+    font-weight: bold;
+    margin: 4px 2px;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    transition-duration: 0.4s;
+}
+.button1 {
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+}
+
+.button2:hover {
+    box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24),0 17px 50px 0 rgba(0,0,0,0.19);
+}
+
+ ul li a {
+      color:#9d9d9d;
+    }
+.nav > li > a:focus, .nav > li > a:hover{
+      color:#fff;
+      background: none;
+    }
+ 
+</style>-->
+<h3 style="margin-top: 100px;">Cart:</h3>
+<table id="cart-table" >
+  <thead style="height: 50px; background: rgb(0, 153, 208) none repeat scroll 0% 0%;">
+        <th class="remove-col"></th>
+        <th class="img-col"></th>
+        <th class="info-col">Product</th>
+        <th class="qty-col">Qty</th>
+        <th class="price-col">Price</th>
+        <th class="total-col">Total</th>
+    </thead>
+<tbody style="background: rgb(141, 180, 155) none repeat scroll 0% 0%;">
+        <tr ng-repeat="item in itemCart"
+    ng-init="product=item.product[0]" style="border-bottom: 1px solid oldlace;">
+            <td class="remove-col"><span style="cursor: pointer;" class="iconicfill-x-alt" ng-click="deleteFromCart(product._id)"></span></td>
+            <td class="img-col">
+               <img  ng-click="setProduct(product._id)"
+        ng-src="/uploads/{{product.imagefile}}" />
+            </td>
+            <td class="info-col">
+                <h3>{{product.name}}</h3>
+            </td>
+            <td class="qty-col">
+                <input type="number" min="1" max="9999" value="3" max="9999" ng-model="item.quantity" />
+            </td>
+            <td class="price-col">
+                <span>{{product.price|currency}}</span>
+            </td>
+            <td class="total-col">
+                <span class="total">{{product.price * item.quantity |currency}}</span>
+            </td>
+        </tr>
+    </tbody>
+</table>
+
+<div class="totals-container" style="float: right;background: rgb(141, 180, 155) none repeat scroll 0% 0%;" ng-hide="itemCart.length== "" " >
+    <table id="totals-table" >
+        <tr style="border-bottom: 1px solid oldlace;"><td><h3>Subtotal:</h3></td><td><span id="subtotal" data-value="54">{{subtotal|currency}}</span></td></tr>
+        <tr style="border-bottom: 1px solid oldlace;"><td><h3>Shipping:</h3></td><td><span id="shipping-fee" data-value="0">{{shipping|currency}}</span></td></tr>
+        <tr><td><h3>Grand Total:</h3></td><td><h3  id="grand-total" data-value="54.69">{{cartTotal()|currency}}</h3></td></tr>
+    </table>
+</div>
+<div class="clearfix"></div>
+<button style="margin-bottom: 100px; background: rgb(0, 153, 208) none repeat scroll 0% 0%; color: rgb(255, 255, 255);" id="checkout-btn" ng-click="checkout()" ng-hide="itemCart.length==0" class="btn btn-press">Proceed to Checkout</button>  
+<style type="text/css">
+  thead th{
+    text-align: center;
+  }
+</style>

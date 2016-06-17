@@ -1,0 +1,72 @@
+
+<ul class="nav navbar-nav  navbar-fixed-top"  style="padding-top: 10px; width: 0px; margin-left: 96%;" >
+           <li ng-if="loginUser" style="float:right"><a href="" ng-click="setOrder()" style="margin-left: -21px; margin-top: 5px;">Orders</a></li>
+      <li style="float:right">
+      <a href="" ng-click="setCart()" style="margin-top: 3px; margin-right: 7px;"><span class="glyphicon glyphicon-shopping-cart shopping-cart">{{customer.cart.length}}items</span></a>
+      </li>
+ 
+    </ul>
+<div class="row" style="margin-top: 100px;">
+ <div class="col-lg-2">
+              
+        </div>
+            <div class="col-lg-8">
+               <h3>Ship To:</h3>
+        </div>
+         <div class="col-lg-2">     
+        </div>
+        </div>
+
+     <div class="row text-center">
+          <div class="col-md-2 col-sm-8 hero-feature"> 
+            </div>
+
+<div class="col-md-8 col-sm-8 hero-feature">
+ <form name="myForm"  novalidate >
+ <label style="float: left;">Name</label><br>
+ <input  type="text" name ="title" ng-model="customer.shipping[0].name" size="94" style="height: 35px;"required>
+<span style="color:red" ng-show="myForm.title.$dirty">
+<span ng-show="myForm.title.$error.required">Name is required.</span>
+</span>
+<br><br>
+  <label style="float: left;">Address</label><br>
+<input style="width: 100%; height:250px" name="address" type="text" ng-model="customer.shipping[0].address" required /><br><br><br>
+  <span style="color:red" ng-show="myForm.address.$dirty">
+<span ng-show="myForm.address.$error.required">Address is required.</span>
+</span>
+ <label style="float: left;">City</label><br>
+<input type="text" ng-model="customer.shipping[0].city" name="city"><br>
+<span style="color:red" ng-show="myForm.city.$dirty">
+<span ng-show="myForm.city.$error.required">city is required.</span>
+</span>
+<br><br>
+ <label style="float: left;">State</label><br>
+<input type="text" ng-model="customer.shipping[0].state"  name="state" required /><br><br><br>
+  <span style="color:red" ng-show="myForm.state.$dirty">
+<span ng-show="myForm.state.$error.required">State is required.</span>
+</span>
+  <label style="float: left;">Zipcode</label>  
+  <input type="Number" name="zip" ng-model="customer.shipping[0].zip" />
+  <span style="color:red" ng-show="myForm.zip.$dirty">
+<span ng-show="myForm.zip.$error.required">zip is required.</span>
+</span>
+  <input type="submit" style="float: right;" ng-click="setShipping()" value="Continue to Billing">
+
+</p>
+ </form>
+ </div>
+    <div class="col-md-2 col-sm-8 hero-feature" style="margin-bottom: 100px;">
+   </div>
+</div>
+ <style type="">
+    ul li a {
+      color:#9d9d9d;
+    }
+    .nav > li > a:focus, .nav > li > a:hover{
+      color:#fff;
+      background: none;
+    }
+    button{
+     height: 35px; background: rgb(0, 153, 208) none repeat scroll 0% 0%; color: rgb(255, 255, 255); float: left; border: medium none;"
+    }
+    </style>

@@ -1,0 +1,48 @@
+
+<link rel="stylesheet" type="text/css" href="/stylesheets/simple-sidebar.css" />
+<div id="wrapper">
+       <div ng-include="'/javascripts/view/adminSidebar.html'"></div>
+    <div id="main-wrapper" class="col-md-10 pull-right">
+             <div id="main">
+              <div class="page-header">
+                <h3>Edit User</h3>
+              </div>
+                   <ol class="breadcrumb">
+                            <li>
+                                <i class="fa fa-dashboard"></i>  <a href="#">Dashboard</a>
+                            </li>
+                             <li>
+                                <i class="fa fa-fw fa-arrows-v"></i>  <a href="#">Edit User</a>
+                            </li>
+         
+                        </ol>
+            
+     <div class="row text-center">
+
+          <div class="col-md-2 col-sm-8 hero-feature">   
+            </div>
+<div class="col-md-8 col-sm-8 hero-feature">
+ <form name="myForm"   >
+ <label style="float: left;">Name</label><br>
+ <input type="text" name="title" ng-model="updateUser.local.name" size="94" style="height: 35px;">
+<br><br>
+<input type="submit" style="float: right;" ng-click="saveUpdateUsers(updateUser._id)" value="Save">
+
+ </form>
+ </div>
+
+           <div class="col-md-2 col-sm-8 hero-feature">
+           
+            </div>
+</div>
+            </div>
+          
+            
+    
+</div>
+</div>
+
+
+
+
+
