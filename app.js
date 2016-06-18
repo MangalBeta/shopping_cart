@@ -16,7 +16,7 @@ var app = express();
 //require("./cart_init");
 //*****connect the database******
 var mongoose=require("mongoose");
-mongoose.connect('mongodb://shopping_cart_mangal.herokuapp.com/Shopping_Cart');
+mongoose.connect('mongodb://shopping-cart-mangal.herokuapp.com/Shopping_Cart');
 
 var db=mongoose.connection;
 db.on('error',function(err,data){
