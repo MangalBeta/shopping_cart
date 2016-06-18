@@ -1,4 +1,4 @@
-@import url(http://weloveiconfonts.com/api/?family=iconicfill);
+@import url(//weloveiconfonts.com/api/?family=iconicfill);
 p{margin:0}
 .footer {
     background: #000 none repeat scroll 0 0;
@@ -139,7 +139,7 @@ input[type="text"]{ border: 2px ridge #777; padding:3px;
   .blue 
   .orange
 */
-@import url(https://fonts.googleapis.com/css?family=Raleway:400,800);
+@import url(//fonts.googleapis.com/css?family=Raleway:400,800);
 .snip1171 {
   font-family: 'Raleway', Arial, sans-serif;
   position: relative;
@@ -577,7 +577,7 @@ ng\:form {
 {
     opacity: .7;
 }
-@import url(http://fonts.googleapis.com/css?family=Roboto:400,700);
+@import url(//fonts.googleapis.com/css?family=Roboto:400,700);
 
 body {
     background-color: rgb(229, 229, 229);
